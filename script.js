@@ -68,6 +68,9 @@ function displayOperator(op) {
     if (operator != 0 && display.textContent != result) {
         operate(num1, operator, num2)
     }
+
+    num1 = display.textContent
+
     currentOperation += op
     display.textContent = currentOperation
     operator = op
@@ -90,12 +93,15 @@ function operate(num1, operator, num2) {
     console.log(currentOperation)
     console.log(operator)
 
-    let numbersArray = currentOperation.split(operator)
+    let operationNumbers = currentOperation.split(operator)
+    
+    console.log(operationNumbers)
 
-    console.log(numbersArray)
+    num2 = operationNumbers[operationNumbers.length - 1]
 
-    num1 = numbersArray[0]
-    num2 = numbersArray[1]
+    num1 = Number(num1)
+    num2 = Number(num2)
+
 
     if (operator == "+") {
         result = add(num1, num2)

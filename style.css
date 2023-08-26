@@ -1,19 +1,32 @@
 .container {
-    width: 500px;
+    background-color: #444444;
+    width: 400px;
+    height: 600px;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
 }
 
 .display {
-    margin: 20px;
-    font-size: 24px;
-    text-align: center;
+    align-self: center;
+    background-color: green;
+    width: 300px;
+    height: 70px;
+    margin: 40px 0 10px 0;
+    padding: 0 10px 0 10px;
+    font-size: 40px;
+    text-align: right;
+    border-radius: 10px;
 }
 
-.buttons {
+.buttons-container {
     width: 252px;
     margin: auto;   
 }
 
-.btn {
+.btn-digit, .btn-operator, .btn-operate, .btn-clear {
     width: 60px;
+    height: 60px;
 }
