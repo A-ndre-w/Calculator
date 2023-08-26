@@ -86,7 +86,7 @@ function clear() {
     currentOperation = ""
 }
 
-// create function that operates when pressing "=", takes three variables and enacts the operation
+// create function that sets up the operation when pressing "=" 
 
 function createOperation(num1, operator) {
     
@@ -104,6 +104,8 @@ function createOperation(num1, operator) {
 
     operate(num1, operator, num2);
 }
+
+// create function that takes three variables enacts the operation
 
 function operate(num1, operator, num2) {
     if (operator == "+") {
