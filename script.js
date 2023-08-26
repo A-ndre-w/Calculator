@@ -6,8 +6,15 @@ let num2 = ""
 
 let result = ""
 
+// create variables to contain current operation and the current number being inputed
+
 let currentOperation = ""
 let currentNumber = ""
+
+// create variable to verify if equal has already been pressed once
+
+let isResult = false
+
 
 // select elements from html page
 
@@ -51,7 +58,7 @@ operateButton.addEventListener("click", () => createOperation(num1, operator))
 // create functions that fill or clear the display and updates the current operation when clicking buttons
 
 function displayDigit(digit) {
-    console.log(operator)
+    isResult = false
     currentOperation += digit
     display.textContent = currentOperation
     currentNumber += digit
@@ -85,6 +92,10 @@ function clear() {
 
 function createOperation(num1, operator) {
     
+    if (isResult) {
+        return;
+    }
+
     num2 = currentNumber
 
     num1 = Number(num1)
@@ -110,7 +121,6 @@ function operate(num1, operator, num2) {
     num1 = result
     currentOperation = result
     currentNumber = result
-    operator = ""
-    console.log(operator)
+    isResult = true
 }
 
