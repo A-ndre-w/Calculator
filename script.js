@@ -1,12 +1,13 @@
 // create variables to store the first number, the operator, the second number and the result
 
-let num1 = 0
-let operator = 0
-let num2 = 0
+let num1 = ""
+let operator = ""
+let num2 = ""
 
-let result = 1
+let result = ""
 
 let currentOperation = ""
+let currentNumber = ""
 
 // select elements from html page
 
@@ -45,45 +46,46 @@ operatorButtons.forEach((button) => button.addEventListener("click", () => displ
 
 clearButton.addEventListener("click", clear)
 
-operateButton.addEventListener("click", () => createOperation(num1, operator, num2))
+operateButton.addEventListener("click", () => createOperation(num1, operator))
 
 // create functions that fill or clear the display and updates the current operation when clicking buttons
 
 function displayDigit(digit) {
+    console.log(operator)
     currentOperation += digit
     display.textContent = currentOperation
+    currentNumber += digit
 }
 
 function displayOperator(op) {
-
-    if (operator != 0 && display.textContent != result) {
-        createOperation(num1, operator, num2)
+    if (operator != "" && display.textContent != currentNumber) {
+        createOperation(num1, operator)
     }
 
-    num1 = display.textContent
+    num1 = currentNumber
+    currentNumber = ""
 
     currentOperation += op
     display.textContent = currentOperation
     operator = op
-    console.log("operator: " + operator)
+    console.log(operator)
 }
 
 function clear() {
     display.textContent = 0;
-    num1 = 0;
-    operator = 0;
-    num2 = 0;
-    result = 0;
+    num1 = "";
+    operator = "";
+    num2 = "";
+    result = "";
     currentOperation = ""
+    currentNumber = ""
 }
 
-// create function that sets up the operation when pressing "=" 
+// create function that sets up the operation when pressing "=" or new operator button
 
 function createOperation(num1, operator) {
     
-    let operationNumbers = currentOperation.split(operator)
-
-    num2 = operationNumbers[operationNumbers.length - 1]
+    num2 = currentNumber
 
     num1 = Number(num1)
     num2 = Number(num2)
@@ -96,19 +98,19 @@ function createOperation(num1, operator) {
 function operate(num1, operator, num2) {
     if (operator == "+") {
         result = add(num1, num2)
-        display.textContent = result
     } else if (operator == "-") {
         result = subtract(num1, num2)
-        display.textContent = result
     } else if (operator == "x") {
         result = multiply(num1, num2)
-        display.textContent = result
     } else {
         result = divide(num1, num2)
-        display.textContent = result
     }
 
+    display.textContent = result
     num1 = result
     currentOperation = result
+    currentNumber = result
+    operator = ""
+    console.log(operator)
 }
 

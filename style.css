@@ -26,7 +26,7 @@
     margin: auto;   
 }
 
-.btn-digit, .btn-operator, .btn-operate, .btn-clear {
+.btn-digit, .btn-operator, .btn-operate, .btn-clear, .btn-delete {
     width: 60px;
     height: 60px;
 }
