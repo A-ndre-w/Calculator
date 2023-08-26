@@ -29,9 +29,9 @@ function divide(x, y) {
 
 // create variables to store the first number, the operator and the second number
 
-let num1 = "something"
-let operator = "+ or - or whatever"
-let num2 = "something else"
+let num1 = 0
+let operator = 0
+let num2 = 0
 
 // create functions that fill the display when clicking buttons
 
@@ -59,6 +59,11 @@ function displayDigit(digit) {
 }
 
 function displayOperator(op) {
+    
+    if (operator != 0) {
+        operate(num1, operator, num2)
+        }
+
     display.textContent += op
     operator = op
     console.log(operator)
@@ -73,14 +78,23 @@ function clear() {
 operateButton.addEventListener("click", () => operate(num1, operator, num2))
 
 function operate(num1, operator, num2) {
+    
+    let result = 0;
+
     if (operator == "+") {
-        display.textContent = add(num1, num2)
+        let result = add(num1, num2)
+        display.textContent = result
     } else if (operator == "-") {
-        return subtract(num1, num2)
+        let result = subtract(num1, num2)
+        display.textContent = result
     } else if (operator == "x") {
-        return multiply(num1, num2)
+        let result = multiply(num1, num2)
+        display.textContent = result
     } else {
-        return divide(num1, num2)
+        let result = divide(num1, num2)
+        display.textContent = result
     }
+
+    num1 = result
 }
 
