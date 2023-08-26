@@ -37,8 +37,7 @@ function divide(x, y) {
     return x / y
 };
 
-// create functions that fill the display when clicking buttons
-
+// create events that take place when clicking buttons
 
 digitButtons.forEach((button) => button.addEventListener("click", () => displayDigit(button.textContent)))
 
@@ -46,7 +45,9 @@ operatorButtons.forEach((button) => button.addEventListener("click", () => displ
 
 clearButton.addEventListener("click", clear)
 
+operateButton.addEventListener("click", () => operate(num1, operator, num2))
 
+// create functions that fill or clear the display and updates the current operation when clicking buttons
 
 function displayDigit(digit) {
 
@@ -83,9 +84,6 @@ function clear() {
 }
 
 // create function that operates when pressing "=", takes  three variables and enacts the operation
-
-operateButton.addEventListener("click", () => operate(num1, operator, num2))
-
 
 function operate(num1, operator, num2) {
     
