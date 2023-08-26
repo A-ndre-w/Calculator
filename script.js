@@ -45,7 +45,7 @@ operatorButtons.forEach((button) => button.addEventListener("click", () => displ
 
 clearButton.addEventListener("click", clear)
 
-operateButton.addEventListener("click", () => operate(num1, operator, num2))
+operateButton.addEventListener("click", () => createOperation(num1, operator, num2))
 
 // create functions that fill or clear the display and updates the current operation when clicking buttons
 
@@ -66,7 +66,7 @@ function displayDigit(digit) {
 function displayOperator(op) {
 
     if (operator != 0 && display.textContent != result) {
-        operate(num1, operator, num2)
+        createOperation(num1, operator, num2)
     }
 
     num1 = display.textContent
@@ -86,15 +86,15 @@ function clear() {
     currentOperation = ""
 }
 
-// create function that operates when pressing "=", takes  three variables and enacts the operation
+// create function that operates when pressing "=", takes three variables and enacts the operation
 
-function operate(num1, operator, num2) {
+function createOperation(num1, operator) {
     
     console.log(currentOperation)
     console.log(operator)
 
     let operationNumbers = currentOperation.split(operator)
-    
+
     console.log(operationNumbers)
 
     num2 = operationNumbers[operationNumbers.length - 1]
@@ -102,7 +102,10 @@ function operate(num1, operator, num2) {
     num1 = Number(num1)
     num2 = Number(num2)
 
+    operate(num1, operator, num2);
+}
 
+function operate(num1, operator, num2) {
     if (operator == "+") {
         result = add(num1, num2)
         display.textContent = result
@@ -116,7 +119,6 @@ function operate(num1, operator, num2) {
         result = divide(num1, num2)
         display.textContent = result
     }
-
 
     num1 = result
     currentOperation = result
