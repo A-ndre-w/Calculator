@@ -50,17 +50,8 @@ operateButton.addEventListener("click", () => createOperation(num1, operator, nu
 // create functions that fill or clear the display and updates the current operation when clicking buttons
 
 function displayDigit(digit) {
-
-    if (display.textContent == 0) {
-        currentOperation += digit
-        display.textContent = currentOperation
-        console.log("num1: " + num1)
-    } else { 
-        currentOperation += digit
-        display.textContent = currentOperation
-        console.log("num2: " + num2)
-        }
-
+    currentOperation += digit
+    display.textContent = currentOperation
 }
 
 function displayOperator(op) {
@@ -90,12 +81,7 @@ function clear() {
 
 function createOperation(num1, operator) {
     
-    console.log(currentOperation)
-    console.log(operator)
-
     let operationNumbers = currentOperation.split(operator)
-
-    console.log(operationNumbers)
 
     num2 = operationNumbers[operationNumbers.length - 1]
 
@@ -124,9 +110,5 @@ function operate(num1, operator, num2) {
 
     num1 = result
     currentOperation = result
-
-    console.log("result: " + result)
-    console.log("num1 :" + num1)
-    console.log("display: " + display.textContent)
 }
 
