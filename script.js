@@ -6,7 +6,7 @@ let num2 = 0
 
 let result = 1
 
-let operation = ""
+let currentOperation = ""
 
 // select elements from html page
 
@@ -51,12 +51,12 @@ clearButton.addEventListener("click", clear)
 function displayDigit(digit) {
 
     if (display.textContent == 0) {
-        display.textContent = digit
-        operation += digit
+        currentOperation += digit
+        display.textContent = currentOperation
         console.log("num1: " + num1)
     } else { 
-        display.textContent += digit
-        operation += digit
+        currentOperation += digit
+        display.textContent = currentOperation
         console.log("num2: " + num2)
         }
 
@@ -67,10 +67,9 @@ function displayOperator(op) {
     if (operator != 0 && display.textContent != result) {
         operate(num1, operator, num2)
     }
-
-    display.textContent += op
+    currentOperation += op
+    display.textContent = currentOperation
     operator = op
-    operation += op
     console.log("operator: " + operator)
 }
 
@@ -80,7 +79,7 @@ function clear() {
     operator = 0;
     num2 = 0;
     result = 0;
-    operation = ""
+    currentOperation = ""
 }
 
 // create function that operates when pressing "=", takes  three variables and enacts the operation
@@ -90,10 +89,10 @@ operateButton.addEventListener("click", () => operate(num1, operator, num2))
 
 function operate(num1, operator, num2) {
     
-    console.log(operation)
+    console.log(currentOperation)
     console.log(operator)
 
-    let numbersArray = operation.split(operator)
+    let numbersArray = currentOperation.split(operator)
 
     console.log(numbersArray)
 
@@ -116,7 +115,7 @@ function operate(num1, operator, num2) {
 
 
     num1 = result
-    operation = result
+    currentOperation = result
 
     console.log("result: " + result)
     console.log("num1 :" + num1)
