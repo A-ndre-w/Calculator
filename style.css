@@ -4,8 +4,14 @@
 }
 
 .display {
-    margin: 10px;
+    margin: 20px;
     font-size: 24px;
+    text-align: center;
+}
+
+.buttons {
+    width: 252px;
+    margin: auto;   
 }
 
 .btn {
