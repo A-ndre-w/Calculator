@@ -184,3 +184,30 @@ function deleteLast() {
         currentNumber = currentOperation
     }
 }
+
+
+// create keyboard support
+
+// Add event listener on keydown
+
+document.addEventListener('keydown', (e) => keyboardInput(e))
+
+function keyboardInput(e) {
+    console.log(e.key)
+    if (e.key >= 0 && e.key <= 9) displayDigit(e.key)
+    if (e.key == "+" || e.key == "-" || e.key == "*" || e.key == "/") convertOperatorInput(e.key)
+    if (e.key == "Escape") clear()
+    if (e.key == "Backspace") deleteLast()
+    if (e.key == "Enter") createOperation(num1, operator)
+    if (e.key == ".") displayDigit(e.key)
+
+}
+
+// function to convert operator key to operator sign
+
+function convertOperatorInput(input) {
+    if (input == "+") displayOperator("+")
+    if (input == "-") displayOperator("-")
+    if (input == "*") displayOperator("x")
+    if (input == "/") displayOperator(":")
+}
