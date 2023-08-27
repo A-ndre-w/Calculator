@@ -80,7 +80,7 @@ function displayDigit(digit) {
 function displayOperator(op) {
 
 
-    if (currentOperation.length > 11) {
+    if (currentOperation.length > 10) {
         alert("Too many characters!")
         return
     }
@@ -89,6 +89,7 @@ function displayOperator(op) {
 
     if (operator != "" && display.textContent != currentNumber) {
         createOperation(num1, operator)
+        isResult = false
     }
 
     num1 = currentNumber

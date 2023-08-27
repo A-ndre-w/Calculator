@@ -4,8 +4,19 @@ font-family: Calculator;
 src: url('Calculator.ttf')
 }
 
+body {
+    background-color: #eaf7ff;
+}
+
+.title {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 54px;
+    text-align: center;
+    margin: 50px;
+}
+
 .calculator {
-    background-color: #444444;
+    background-color: #707070;
     border: 3px solid #222222;
     width: 420px;
     height: 600px;
