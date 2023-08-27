@@ -11,10 +11,6 @@ let result = ""
 let currentOperation = "0"
 let currentNumber = "0"
 
-// create default display
-
-display.textContent = currentNumber
-
 // create variable to verify if equal has already been pressed once, until next number input
 
 let isResult = true
@@ -29,6 +25,9 @@ const clearButton = document.querySelector(".btn-clear")
 const operateButton = document.querySelector(".btn-operate")
 const deleteButton = document.querySelector(".btn-delete")
 
+// create default display
+
+display.textContent = currentNumber
 
 // create functions to add, subtract, multiply, divide two numbers
 
