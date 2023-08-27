@@ -66,6 +66,10 @@ function displayDigit(digit) {
         return
     }
 
+    if (digit == "." && currentNumber.includes(".")) {
+        return
+    }
+
     if (display.textContent == "0") {
         currentOperation = digit
         display.textContent = currentOperation
@@ -138,11 +142,11 @@ function operate(num1, operator, num2) {
     }
 
     if (operator == "+") {
-        result = add(num1, num2)
+        result = add(num1, num2).toFixed(3)
     } else if (operator == "-") {
-        result = subtract(num1, num2)
+        result = subtract(num1, num2).toFixed(3)
     } else if (operator == "x") {
-        result = multiply(num1, num2)
+        result = multiply(num1, num2).toFixed(3)
     } else {
         result = Math.round(divide(num1, num2))
     }
