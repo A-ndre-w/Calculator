@@ -8,8 +8,12 @@ let result = ""
 
 // create variables to contain current operation and the current number being inputed
 
-let currentOperation = ""
-let currentNumber = ""
+let currentOperation = "0"
+let currentNumber = "0"
+
+// create default display
+
+display.textContent = currentNumber
 
 // create variable to verify if equal has already been pressed once, until next number input
 
@@ -25,7 +29,6 @@ const clearButton = document.querySelector(".btn-clear")
 const operateButton = document.querySelector(".btn-operate")
 const deleteButton = document.querySelector(".btn-delete")
 
-display.textContent = "0"
 
 // create functions to add, subtract, multiply, divide two numbers
 
@@ -70,7 +73,7 @@ function displayDigit(digit) {
         return
     }
 
-    if (display.textContent == "0") {
+    if (currentNumber == "0" && digit != ".") {
         currentOperation = digit
         display.textContent = currentOperation
         currentNumber = digit
@@ -111,8 +114,8 @@ function clear() {
     operator = "";
     num2 = "";
     result = "";
-    currentOperation = ""
-    currentNumber = ""
+    currentOperation = "0"
+    currentNumber = "0"
 }
 
 // create function that sets up the operation when pressing "=" or new operator button
@@ -142,11 +145,11 @@ function operate(num1, operator, num2) {
     }
 
     if (operator == "+") {
-        result = add(num1, num2).toFixed(3)
+        result = add(num1, num2)
     } else if (operator == "-") {
-        result = subtract(num1, num2).toFixed(3)
+        result = subtract(num1, num2)
     } else if (operator == "x") {
-        result = multiply(num1, num2).toFixed(3)
+        result = multiply(num1, num2)
     } else {
         result = Math.round(divide(num1, num2))
     }
