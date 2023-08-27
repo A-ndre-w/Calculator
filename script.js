@@ -59,18 +59,35 @@ deleteButton.addEventListener("click", () => deleteLast())
 
 // create functions that fill or clear the display and updates the current operation when clicking buttons
 
-function displayDigit(digit) {    
+function displayDigit(digit) {
+
+    if (currentOperation.length > 11) {
+        alert("Too many characters!")
+        return
+    }
+
+
+
     currentOperation += digit
     display.textContent = currentOperation
     currentNumber += digit
 }
 
 function displayOperator(op) {
+
+
+    if (currentOperation.length > 11) {
+        alert("Too many characters!")
+        return
+    }
+    
+
+    isResult = false;
+
     if (operator != "" && display.textContent != currentNumber) {
         createOperation(num1, operator)
     }
 
-    isOperator = true
     num1 = currentNumber
     currentNumber = ""
 
@@ -116,7 +133,7 @@ function operate(num1, operator, num2) {
     } else if (operator == "x") {
         result = multiply(num1, num2)
     } else {
-        result = divide(num1, num2)
+        result = Math.round(divide(num1, num2))
     }
 
     num1 = result
@@ -135,4 +152,9 @@ function deleteLast() {
     currentOperation = currentOperation.toString().slice(0, -1)
     display.textContent = currentOperation
     currentNumber = currentOperation
+
+    if (currentOperation.length == 0) {
+        currentOperation = "0";
+        display.textContent = currentOperation;
+    }
 }
