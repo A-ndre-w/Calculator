@@ -61,7 +61,7 @@ deleteButton.addEventListener("click", () => deleteLast())
 
 function displayDigit(digit) {
 
-    if (currentOperation.length > 11) {
+    if (currentOperation.length > 10) {
         alert("Too many characters!")
         return
     }
