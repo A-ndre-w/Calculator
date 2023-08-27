@@ -130,7 +130,7 @@ function createOperation(num1, operator) {
     num1 = Number(num1)
     num2 = Number(num2)
 
-    display.textContent = operate(num1, operator, num2);
+    operate(num1, operator, num2);
 }
 
 // create function that takes three variables enacts the operation
@@ -150,8 +150,10 @@ function operate(num1, operator, num2) {
     } else if (operator == "x") {
         result = multiply(num1, num2)
     } else {
-        result = Math.round(divide(num1, num2))
+        result = divide(num1, num2)
     }
+
+    result = Math.round(result * 1000) / 1000
 
     num1 = result
     currentOperation = result
@@ -159,8 +161,13 @@ function operate(num1, operator, num2) {
 
     isResult = true
     
-    return currentOperation
+    showResult(result)
+}
 
+// create function that shows the result on the display
+
+function showResult(result) {
+    display.textContent = result
 }
 
 // create function that deletes last digit
