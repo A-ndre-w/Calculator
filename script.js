@@ -25,7 +25,7 @@ const clearButton = document.querySelector(".btn-clear")
 const operateButton = document.querySelector(".btn-operate")
 const deleteButton = document.querySelector(".btn-delete")
 
-display.textContent = 0
+display.textContent = "0"
 
 // create functions to add, subtract, multiply, divide two numbers
 
@@ -66,11 +66,15 @@ function displayDigit(digit) {
         return
     }
 
-
-
-    currentOperation += digit
-    display.textContent = currentOperation
-    currentNumber += digit
+    if (display.textContent == "0") {
+        currentOperation = digit
+        display.textContent = currentOperation
+        currentNumber = digit
+    } else {
+        currentOperation += digit
+        display.textContent = currentOperation
+        currentNumber += digit
+    }
 }
 
 function displayOperator(op) {
@@ -80,7 +84,6 @@ function displayOperator(op) {
         alert("Too many characters!")
         return
     }
-    
 
     isResult = false;
 
@@ -98,7 +101,7 @@ function displayOperator(op) {
 }
 
 function clear() {
-    display.textContent = 0;
+    display.textContent = "0";
     num1 = "";
     operator = "";
     num2 = "";
@@ -149,6 +152,7 @@ function operate(num1, operator, num2) {
 // create function that deletes last digit
 
 function deleteLast() {
+
     currentOperation = currentOperation.toString().slice(0, -1)
     display.textContent = currentOperation
     currentNumber = currentOperation
@@ -156,5 +160,6 @@ function deleteLast() {
     if (currentOperation.length == 0) {
         currentOperation = "0";
         display.textContent = currentOperation;
+        currentNumber = currentOperation
     }
 }

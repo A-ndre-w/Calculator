@@ -35,6 +35,10 @@ src: url('Calculator.ttf')
     margin: auto;
 }
 
+.btn-delete {
+    margin-left: 10px
+}
+
 .buttons {
     margin: auto;
     text-align: center;
@@ -49,12 +53,10 @@ src: url('Calculator.ttf')
     border-radius: 8px;
 }
 
-.btn-operator {
-    margin-left: 10px;
+.light {
+    background-color: #DDDDDD;
 }
 
-.btn-delete, .btn-clear {
-    width: 180px;
-    height: 70px;
-    margin-bottom: 10px;
+.btn-operator {
+    margin-left: 10px;
 }
