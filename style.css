@@ -1,6 +1,13 @@
-.container {
+
+@font-face {
+font-family: Calculator;
+src: url('Calculator.ttf')
+}
+
+.calculator {
     background-color: #444444;
-    width: 400px;
+    border: 3px solid #222222;
+    width: 420px;
     height: 600px;
     margin: auto;
     display: flex;
@@ -10,23 +17,44 @@
 }
 
 .display {
+    font-family: Calculator, sans-serif;
+    font-size: 60px;
     align-self: center;
-    background-color: green;
+    background-color: #A8C64E;
+    border: 2px solid #BBBBBB;
     width: 300px;
-    height: 70px;
+    height: 80px;
     margin: 40px 0 10px 0;
     padding: 0 10px 0 10px;
-    font-size: 40px;
     text-align: right;
     border-radius: 10px;
 }
 
 .buttons-container {
-    width: 252px;
-    margin: auto;   
+    width: 400px;
+    margin: auto;
 }
 
-.btn-digit, .btn-operator, .btn-operate, .btn-clear, .btn-delete {
-    width: 60px;
-    height: 60px;
+.buttons {
+    margin: auto;
+    text-align: center;
+}
+
+.btn-digit, .btn-operator, .btn-operate, .btn-clear, .btn-delete, .btn-dot {
+    background-color: #BBBBBB;
+    font-size: 20px;
+    width: 90px;
+    height: 70px;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+.btn-operator {
+    margin-left: 10px;
+}
+
+.btn-delete, .btn-clear {
+    margin-top: 20px;
+    width: 180px;
+    height: 70px;
 }

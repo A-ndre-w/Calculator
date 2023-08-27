@@ -13,7 +13,7 @@ let currentNumber = ""
 
 // create variable to verify if equal has already been pressed once, until next number input
 
-let isResult = false
+let isResult = true
 
 // select elements from html page
 
@@ -59,8 +59,7 @@ deleteButton.addEventListener("click", () => deleteLast())
 
 // create functions that fill or clear the display and updates the current operation when clicking buttons
 
-function displayDigit(digit) {
-    isResult = false
+function displayDigit(digit) {    
     currentOperation += digit
     display.textContent = currentOperation
     currentNumber += digit
@@ -71,6 +70,7 @@ function displayOperator(op) {
         createOperation(num1, operator)
     }
 
+    isOperator = true
     num1 = currentNumber
     currentNumber = ""
 
@@ -132,7 +132,6 @@ function operate(num1, operator, num2) {
 // create function that deletes last digit
 
 function deleteLast() {
-    console.log(currentOperation)
     currentOperation = currentOperation.toString().slice(0, -1)
     display.textContent = currentOperation
     currentNumber = currentOperation
