@@ -115,7 +115,7 @@ function clear() {
 function createOperation(num1, operator) {
     
     if (isResult) {
-        return;
+        return
     }
 
     num2 = currentNumber
@@ -129,6 +129,13 @@ function createOperation(num1, operator) {
 // create function that takes three variables enacts the operation
 
 function operate(num1, operator, num2) {
+
+    if (currentOperation.includes(":0")) {
+        alert("can't divide by 0!")
+        clear()
+        return
+    }
+
     if (operator == "+") {
         result = add(num1, num2)
     } else if (operator == "-") {
