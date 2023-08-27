@@ -11,10 +11,9 @@ let result = ""
 let currentOperation = ""
 let currentNumber = ""
 
-// create variable to verify if equal has already been pressed once
+// create variable to verify if equal has already been pressed once, until next number input
 
 let isResult = false
-
 
 // select elements from html page
 
@@ -24,6 +23,7 @@ const digitButtons = Array.from(document.querySelectorAll(".btn-digit"));
 const operatorButtons = Array.from(document.querySelectorAll(".btn-operator"))
 const clearButton = document.querySelector(".btn-clear")
 const operateButton = document.querySelector(".btn-operate")
+const deleteButton = document.querySelector(".btn-delete")
 
 display.textContent = 0
 
@@ -55,6 +55,8 @@ clearButton.addEventListener("click", clear)
 
 operateButton.addEventListener("click", () => createOperation(num1, operator))
 
+deleteButton.addEventListener("click", () => deleteLast())
+
 // create functions that fill or clear the display and updates the current operation when clicking buttons
 
 function displayDigit(digit) {
@@ -74,8 +76,8 @@ function displayOperator(op) {
 
     currentOperation += op
     display.textContent = currentOperation
+
     operator = op
-    console.log(operator)
 }
 
 function clear() {
@@ -101,7 +103,7 @@ function createOperation(num1, operator) {
     num1 = Number(num1)
     num2 = Number(num2)
 
-    operate(num1, operator, num2);
+    display.textContent = operate(num1, operator, num2);
 }
 
 // create function that takes three variables enacts the operation
@@ -117,10 +119,21 @@ function operate(num1, operator, num2) {
         result = divide(num1, num2)
     }
 
-    display.textContent = result
     num1 = result
     currentOperation = result
     currentNumber = result
+
     isResult = true
+    
+    return currentOperation
+
 }
 
+// create function that deletes last digit
+
+function deleteLast() {
+    console.log(currentOperation)
+    currentOperation = currentOperation.toString().slice(0, -1)
+    display.textContent = currentOperation
+    currentNumber = currentOperation
+}
